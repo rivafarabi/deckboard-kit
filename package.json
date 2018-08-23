@@ -1,0 +1,27 @@
+{
+  "name": "deckboard-extension",
+  "version": "0.0.1",
+  "description": "Deckboard app extention starter",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rivafarabi/deckboard-extension.git"
+  },
+  "keywords": [
+    "deckboard",
+    "extention",
+    "node"
+  ],
+  "author": "Riva Farabi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rivafarabi/deckboard-extension/issues"
+  },
+  "homepage": "https://github.com/rivafarabi/deckboard-extension#readme",
+  "dependencies": {
+    "electron-log": "^2.2.17"
+  }
+}
