@@ -26,7 +26,6 @@ const selections = {
 
 
 const execute = (category, primary, secondary) => {
-  console.log(category, primary, secondary)
   if (!primary) {
     extensionLog("error", "No primary value");
     return;
@@ -51,4 +50,4 @@ function doNothing() {
 }
 
 var deckboardExtention = new DeckboardExtention("Example Extension", selections, execute);
-module.exports = new DeckboardExtention("Example Extension", selections, execute);
+module.exports = deckboardExtention
