@@ -3,6 +3,7 @@ var { DeckboardExtention, extensionLog, INPUT_METHOD } = require("..")
 const selections = {
   label: 'Do Something',
   value: 'study',
+  icon: 'book',
   inputs: [
     {
       type: INPUT_METHOD.INPUT_SELECT,
@@ -23,7 +24,6 @@ const selections = {
     }
   ]
 } 
-
 
 const execute = (category, primary, secondary) => {
   if (!primary) {
