@@ -26,7 +26,7 @@ class DeckboardExtention {
       {
         header: this.name
       },
-      this.inputs
+      ...this.inputs
     ];
   }
 }
