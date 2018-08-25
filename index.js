@@ -14,7 +14,7 @@ const INPUT_METHOD = {
   INPUT_COLOR: "input:color"
 };
 
-class DeckboardExtention {
+class DeckboardExtension {
   constructor(moduleName, inputs, execute) {
     this.name = moduleName;
     this.inputs = inputs;
@@ -32,7 +32,7 @@ class DeckboardExtention {
 }
 
 module.exports = {
-  DeckboardExtention,
+  DeckboardExtension,
   extensionLog,
   INPUT_METHOD
 };

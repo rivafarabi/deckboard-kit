@@ -1,43 +1,41 @@
-var { DeckboardExtention, extensionLog, INPUT_METHOD } = require("..")
+const { DeckboardExtension, extensionLog, INPUT_METHOD } = require("..")
 
 const selections = {
-  label: 'Do Something',
-  value: 'study',
-  icon: 'book',
+  label: 'Do Something', // Action lookup label
+  value: 'study', // Action lookup value
+  icon: 'book', // FontAwesome icon
+  color: '#8E44AD', // Button's default color
   inputs: [
     {
-      type: INPUT_METHOD.INPUT_SELECT,
-      label: 'Subject',
-      assignTo: 'primary',
-      items: [{
-        value: 'math',
-        label: 'Mathematics'
-      },
-      {
-        value: 'biology',
-        label: 'Biology'
-      }]
+      type: INPUT_METHOD.INPUT_SELECT, // Create a drop down selection field input
+      label: 'Subject', // Label for drop down field
+      ref: 'subject', // Field's reference name that can be used in execute function
+      items: [ // Array of drop down items
+        { 
+          value: 'math',
+          label: 'Mathematics'
+        },
+        {
+          value: 'biology',
+          label: 'Biology'
+        }
+      ]
     }, {
-      type: INPUT_METHOD.INPUT_TEXT,
+      type: INPUT_METHOD.INPUT_TEXT, // Create a text field input
       label: 'Additional Note',
-      assignTo: 'secondary'
+      ref: 'note'
     }
   ]
 } 
 
-const execute = (category, primary, secondary) => {
-  if (!primary) {
-    extensionLog("error", "No primary value");
-    return;
-  } else {
-    switch (category) {
-      case "study":
-        doStudy(primary, secondary);
-        break;
-      default:
-        doNothing();
-        break;
-    }
+const execute = (action, args) => {
+  switch (action) {
+    case "study":
+      doStudy(args.subject, args.note);
+      break;
+    default:
+      doNothing();
+      break;
   }
 };
 
@@ -49,5 +47,5 @@ function doNothing() {
   extensionlog('info', 'I did nothing...')
 }
 
-var deckboardExtention = new DeckboardExtention("Example Extension", selections, execute);
-module.exports = deckboardExtention
+const myExtension = new DeckboardExtension("Example Extension", selections, execute);
+module.exports = myExtension
