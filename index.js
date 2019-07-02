@@ -1,38 +1,11 @@
 "use strict";
-const log = require("electron-log");
-
-const extensionLog = (logLevel = "info", err) => {
-  log[logLevel](`${err}`);
-};
-
-const INPUT_METHOD = {
-  INPUT_TEXT: "input:text",
-  INPUT_KEY: "input:key",
-  INPUT_SELECT: "input:select",
-  INPUT_FILE: "input:file",
-  INPUT_FOLDER: "input:folder",
-  INPUT_COLOR: "input:color"
-};
-
-class DeckboardExtension {
-  constructor(moduleName, inputs, execute) {
-    this.name = moduleName;
-    this.inputs = inputs;
-    this.execute = execute;
-  }
-
-  get selections() {
-    return [
-      {
-        header: this.name
-      },
-      ...this.inputs
-    ];
-  }
-}
+const Extension = require('./Extension');
+const { INPUT_METHOD, PLATFORMS } = require('./constants');
+const { log } = require('./utils');
 
 module.exports = {
-  DeckboardExtension,
-  extensionLog,
-  INPUT_METHOD
+  Extension,
+  log,
+  INPUT_METHOD,
+  PLATFORMS
 };

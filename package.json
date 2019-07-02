@@ -1,5 +1,5 @@
 {
-  "name": "deckboard-extension-kit",
+  "name": "deckboard-extension",
   "version": "0.0.2",
   "description": "Deckboard app extention starter",
   "main": "index.js",
