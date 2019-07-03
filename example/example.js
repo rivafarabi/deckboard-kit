@@ -46,13 +46,12 @@ class MyExtension extends Extension {
   };
 
   doStudy(activity, options) {
-    log('info', `I did  ${activity}. ${options ? 'Notes: ' + options : ''}`)
+    log('info', `I did  ${activity}. ${options ? 'Notes: ' + options : ''}`);
   }
 
   doNothing() {
-    extensionlog('info', 'I did nothing...')
+    log('info', 'I did nothing...')
   }
-
 }
 
-module.exports = new MyExtension();
+module.exports = MyExtension;

@@ -1,4 +1,4 @@
-const INPUT_METHOD = {
+export const INPUT_METHOD = {
     INPUT_TEXT: "input:text",
     INPUT_KEY: "input:key",
     INPUT_SELECT: "input:select",
@@ -7,7 +7,7 @@ const INPUT_METHOD = {
     INPUT_COLOR: "input:color"
 };
 
-const PLATFORMS = {
+export const PLATFORMS = {
     WINDOWS: 'WINDOWS',
     MAC: 'MAC',
     LINUX: 'LINUX',
