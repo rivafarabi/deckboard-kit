@@ -3,7 +3,7 @@
 import arg from 'arg';
 import inquirer from 'inquirer';
 import { buildExtension } from './build';
-import { createProject } from './init';
+import { createProject } from './create';
 
 const parseArgumentIntoOptions = rawArgs => {
 	const args = arg(

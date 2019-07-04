@@ -5,3 +5,10 @@ node_js:
 
 script:
   - npm run test
+
+deploy:
+  provider: npm
+  email: rivafarabi.babeheer@gmail.com
+  api_key: $NPM_TOKEN
+  on:
+    branch: master
