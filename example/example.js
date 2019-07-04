@@ -5,7 +5,7 @@ class MyExtension extends Extension {
     super();
     this.name = "Sample Extension";
     this.platforms = [PLATFORMS.WINDOWS, PLATFORMS.MAC];
-    this.inputs = {
+    this.inputs = [{
       label: 'Do Something', // Action lookup label
       value: 'study', // Action lookup value
       icon: 'book', // FontAwesome icon
@@ -31,7 +31,7 @@ class MyExtension extends Extension {
           ref: 'note'
         }
       ]
-    }
+    }]
   }
 
   execute = (action, args) => {

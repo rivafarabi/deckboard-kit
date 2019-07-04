@@ -3,13 +3,14 @@
 import arg from 'arg';
 import inquirer from 'inquirer';
 import { buildExtension } from './build';
+import { createProject } from './init';
 
 const parseArgumentIntoOptions = rawArgs => {
 	const args = arg(
 		{
-			'--init': Boolean,
+			'--create': Boolean,
 			'--build': Boolean,
-			'-i': '--init',
+			'-c': '--create',
 			'-b': '--build'
 		},
 		{
@@ -17,18 +18,23 @@ const parseArgumentIntoOptions = rawArgs => {
 		}
 	);
 	return {
-		init: args['--init'],
+		create: args['--create'],
 		build: args['--build'],
 		packageName: args._[0]
 	};
 };
 
-const promptForInit = async options => {
+const promptForCreate = async options => {
 	const questions = [];
 	questions.push({
 		type: 'input',
 		name: 'extName',
 		message: 'Extension Name	:'
+	});
+	questions.push({
+		type: 'input',
+		name: 'description',
+		message: 'Description		:'
 	});
 	questions.push({
 		type: 'input',
@@ -45,7 +51,9 @@ const promptForInit = async options => {
 
 export const cli = async args => {
 	let options = parseArgumentIntoOptions(args);
-	if (options.init) options = await promptForInit(options);
+	if (options.create) {
+		options = await promptForCreate(options);
+		createProject(options);
+	}
 	else if (options.build) await buildExtension();
-	console.log(options);
 };

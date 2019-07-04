@@ -1,0 +1,5 @@
+name: 'extname'
+package: 'packagename'
+description: 'description'
+url: 'http://www.test.com'
+asarUrl: 'http://www.test.com/packagename.asar'
