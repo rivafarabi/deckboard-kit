@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 const access = promisify(fs.access);
 const copyFile = promisify(fs.copyFile);
 const writeFile = promisify(fs.writeFile);
+const writeJson = promisify(fs.writeJSON);
 
 export const createProject = async options => {
 	const tasks = new Listr([
@@ -83,7 +84,7 @@ const createPackageJson = async ctx => {
 					'https://github.com/rivafarabi/deckboard-kit.git'
 			}
 		};
-		await writeFile(
+		await writeJson(
 			path.resolve(dir, 'package.json'),
 			JSON.stringify(jsonContent),
 			'utf8'

@@ -1,10 +1,7 @@
-const electronLog = require("electron-log");
+const log = require('electron-log');
+const prompt = require('electron-prompt');
 
-/**
- * 
- * @param {String} logLevel 
- * @param {object} err 
- */
-export const log = (logLevel = 'info', message) => {
-    electronLog[logLevel](`${message}`);
+module.exports = {
+	log,
+	prompt
 };
