@@ -86,7 +86,7 @@ const createPackageJson = async ctx => {
 		};
 		await writeJson(
 			path.resolve(dir, 'package.json'),
-			JSON.stringify(jsonContent),
+			jsonContent,
 			'utf8'
 		);
 	} catch (err) {
