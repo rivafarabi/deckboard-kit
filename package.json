@@ -1,6 +1,6 @@
 {
   "name": "deckboard-kit",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Deckboard app extention starter",
   "main": "index.js",
   "bin": {
@@ -26,18 +26,18 @@
   "homepage": "https://github.com/rivafarabi/deckboard-kit#readme",
   "dependencies": {
     "arg": "^4.1.0",
+    "asar": "^2.0.1",
     "electron-log": "^2.2.17",
-    "fs-extra": "^8.1.0"
+    "fs-extra": "^8.1.0",
+    "galactus": "^0.2.1",
+    "inquirer": "^6.4.1",
+    "listr": "^0.14.3",
+    "yaml": "^1.6.0"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.4.5",
-    "asar": "^2.0.1",
     "babel-jest": "^24.8.0",
     "babel-preset-env": "^1.7.0",
-    "galactus": "^0.2.1",
-    "inquirer": "^6.4.1",
-    "jest": "^24.8.0",
-    "listr": "^0.14.3",
-    "yaml": "^1.6.0"
+    "jest": "^24.8.0"
   }
 }
