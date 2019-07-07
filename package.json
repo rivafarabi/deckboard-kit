@@ -1,6 +1,6 @@
 {
   "name": "deckboard-kit",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Deckboard app extention starter",
   "main": "index.js",
   "bin": {
@@ -35,7 +35,6 @@
     "asar": "^2.0.1",
     "babel-jest": "^24.8.0",
     "babel-preset-env": "^1.7.0",
-    "esm": "^3.2.25",
     "galactus": "^0.2.1",
     "inquirer": "^6.4.1",
     "jest": "^24.8.0",
