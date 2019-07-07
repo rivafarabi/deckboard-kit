@@ -4,7 +4,8 @@ const INPUT_METHOD = {
 	INPUT_SELECT: 'input:select',
 	INPUT_FILE: 'input:file',
 	INPUT_FOLDER: 'input:folder',
-	INPUT_COLOR: 'input:color'
+	INPUT_COLOR: 'input:color',
+	INPUT_CHECKBOX: 'input:checkbox'
 };
 
 const PLATFORMS = {
