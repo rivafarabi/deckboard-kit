@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-import arg from 'arg';
-import inquirer from 'inquirer';
-import { buildExtension } from './build';
-import { createProject } from './create';
+const arg = require('arg');
+const inquirer = require('inquirer');
+const { buildExtension } = require('./build');
+const { createProject } = require('./create');
 
 const parseArgumentIntoOptions = rawArgs => {
 	const args = arg(
@@ -49,11 +49,14 @@ const promptForCreate = async options => {
 	};
 };
 
-export const cli = async args => {
+const cli = async args => {
 	let options = parseArgumentIntoOptions(args);
 	if (options.create) {
 		options = await promptForCreate(options);
 		createProject(options);
-	}
-	else if (options.build) await buildExtension();
+	} else if (options.build) await buildExtension();
+};
+
+module.exports = {
+	cli
 };

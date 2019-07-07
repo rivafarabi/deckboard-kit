@@ -1,17 +1,17 @@
-import chalk from 'chalk';
-import fs from 'fs-extra';
-import Listr from 'listr';
-import path from 'path';
-import YAML from 'yaml';
-import { promisify } from 'util';
-import { Observable } from 'rxjs';
+const chalk = require('chalk');
+const fs = require('fs-extra');
+const Listr = require('listr');
+const path = require('path');
+const YAML = require('yaml');
+const { promisify } = require('util');
+const { Observable } = require('rxjs');
 
 const access = promisify(fs.access);
 const copyFile = promisify(fs.copyFile);
 const writeFile = promisify(fs.writeFile);
 const writeJson = promisify(fs.writeJSON);
 
-export const createProject = async options => {
+const createProject = async options => {
 	const tasks = new Listr([
 		{
 			title: 'Creating project folder',
@@ -130,4 +130,8 @@ const createInitialScript = async ctx => {
 	} catch (err) {
 		throw new Error(chalk.bold.red(err));
 	}
+};
+
+module.exports = {
+	createProject
 };

@@ -1,16 +1,14 @@
-import asar from 'asar';
-import chalk from 'chalk';
-import fs from 'fs-extra';
-import Listr from 'listr';
-import os from 'os';
-import path from 'path';
-import yaml from 'yaml';
-import { DestroyerOfModules } from 'galactus';
-import { Observable } from 'rxjs';
-import { promisify } from 'util';
+const asar = require('asar');
+const chalk = require('chalk');
+const fs = require('fs-extra');
+const Listr = require('listr');
+const path = require('path');
+const yaml = require('yaml');
+const { DestroyerOfModules } = require('galactus');
+const { Observable } = require('rxjs');
+const { promisify } = require('util');
 
 const access = promisify(fs.access);
-
 const projectDir = process.cwd();
 const ymlDir = path.resolve(process.cwd(), 'extension.yml');
 const tempDir = path.join(process.cwd(), '../.temp');
@@ -20,7 +18,7 @@ const destroyer = new DestroyerOfModules({
 	rootDirectory: tempDir
 });
 
-export const buildExtension = async () => {
+const buildExtension = async () => {
 	const tasks = new Listr([
 		{
 			title: 'Checking package info',
@@ -88,3 +86,7 @@ const createExtensionPackage = async ctx =>
 		}
 		observer.complete();
 	});
+
+module.exports = {
+	buildExtension
+};
