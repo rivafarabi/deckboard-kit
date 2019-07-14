@@ -30,3 +30,4 @@ To add your extension to extension list, follow the instruction [here](https://g
 
 ## Example
 - [Power Control](https://github.com/rivafarabi/deckboard-power-control)
+- [Steam Launcher](https://github.com/rivafarabi/steam-launcher)
