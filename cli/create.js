@@ -53,7 +53,7 @@ const createProjectFolder = async ctx => {
 		throw new Error(
 			chalk.bold.red(
 				`Directory ${
-					options.packageName
+				options.packageName
 				} already exists in ${process.cwd()}. Extension initiation has been cancelled.`
 			)
 		);
@@ -104,8 +104,7 @@ const createExtensionYml = async ctx => {
 			description: options.description,
 			author: options.author,
 			license: 'MIT',
-			url: '',
-			asarUrl: ''
+			repository: ''
 		};
 		await writeFile(
 			path.resolve(dir, 'extension.yml'),
