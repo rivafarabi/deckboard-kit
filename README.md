@@ -1,7 +1,7 @@
 # deckboard-kit
 [![Build Status](https://travis-ci.org/rivafarabi/deckboard-kit.svg?branch=master)](https://travis-ci.org/rivafarabi/deckboard-kit)
 
-Deckboard app extention starter
+Deckboard app extension starter
 
 ## Install
 
