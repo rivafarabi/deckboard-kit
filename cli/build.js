@@ -99,7 +99,7 @@ const createExtensionPackage = async ctx =>
 		observer.complete();
 	});
 
-const createExtensionPackage = async ctx =>
+const copyPackageToExtension = async ctx =>
 	new Observable(async observer => {
 		try {
 			observer.next('Copy package to extensions folder');
