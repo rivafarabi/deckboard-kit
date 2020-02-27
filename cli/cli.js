@@ -10,8 +10,10 @@ const parseArgumentIntoOptions = rawArgs => {
 		{
 			'--create': Boolean,
 			'--build': Boolean,
+			'--install': Boolean,
 			'-c': '--create',
-			'-b': '--build'
+			'-b': '--build',
+			'-i': '--install'
 		},
 		{
 			argv: rawArgs.slice(2)
@@ -20,6 +22,7 @@ const parseArgumentIntoOptions = rawArgs => {
 	return {
 		create: args['--create'],
 		build: args['--build'],
+		install: args['--install'],
 		packageName: args._[0]
 	};
 };
@@ -54,7 +57,8 @@ const cli = async args => {
 	if (options.create) {
 		options = await promptForCreate(options);
 		createProject(options);
-	} else if (options.build) await buildExtension();
+	} else if (options.build) await buildExtension(false);
+	else if (options.install) await buildExtension(true);
 };
 
 module.exports = {
