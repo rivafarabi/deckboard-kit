@@ -51,6 +51,7 @@ const buildExtension = async (install = false) => {
 
 const checkYamlPackageFile = async ctx => {
 	try {
+		await fs.remove(outputDir);
 		await access(ymlDir, fs.constants.R_OK);
 		const file = fs.readFileSync(ymlDir, 'utf8');
 		ctx.packageInfo = yaml.parse(file);
@@ -83,7 +84,6 @@ const createExtensionPackage = async ctx =>
 	new Observable(async observer => {
 		try {
 			observer.next('Package files');
-			await fs.remove(outputDir);
 
 			await asar.createPackage(
 				tempDir,
@@ -106,7 +106,7 @@ const copyPackageToExtension = async ctx =>
 
 			await fs.copy(
 				path.join(outputDir, ctx.packageInfo.package + '.asar'),
-				extDir
+				path.join(extDir, ctx.packageInfo.package + '.asar'),
 			);
 		} catch (err) {
 			observer.error();

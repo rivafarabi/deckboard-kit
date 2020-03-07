@@ -27,6 +27,12 @@ class MyExtension extends Extension {
 				]
 			}
 		];
+		this.configs = [];
+	}
+
+	// Executes when the extensions loaded every time the app start.
+	initExtension() {
+		return;
 	}
 
 	execute = (action, args) => {
