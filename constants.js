@@ -22,7 +22,7 @@ const ICONS = {
 	FONTAWESOME_SOLID: 'fas',
 	FONTAWESOME_BRAND: 'fab',
 	IONICONS: 'ion'
-}
+};
 
 module.exports = {
 	INPUT_METHOD,
