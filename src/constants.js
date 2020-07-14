@@ -18,7 +18,14 @@ const PLATFORMS = {
 	AIX: 'AIX'
 };
 
+const ICONS = {
+	FONTAWESOME_SOLID: 'fas',
+	FONTAWESOME_BRAND: 'fab',
+	IONICONS: 'ion'
+}
+
 module.exports = {
 	INPUT_METHOD,
-	PLATFORMS
+	PLATFORMS,
+	ICONS
 };

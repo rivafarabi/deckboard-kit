@@ -75,7 +75,8 @@ const createPackageJson = async ctx => {
 			description: options.description,
 			main: 'index.js',
 			scripts: {
-				build: 'deckboard-kit --build'
+				build: 'deckboard-kit --build',
+				install: 'deckboard-kit --install'
 			},
 			author: options.author,
 			license: 'MIT',
@@ -84,11 +85,7 @@ const createPackageJson = async ctx => {
 					'https://github.com/rivafarabi/deckboard-kit.git'
 			}
 		};
-		await writeJson(
-			path.resolve(dir, 'package.json'),
-			jsonContent,
-			'utf8'
-		);
+		await writeJson(path.resolve(dir, 'package.json'), jsonContent, 'utf8');
 	} catch (err) {
 		throw new Error(chalk.bold.red(err));
 	}

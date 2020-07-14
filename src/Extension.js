@@ -1,7 +1,13 @@
-'use strict';
-const { PLATFORMS } = require('./constants');
+// @flow
+
+const { PLATFORMS, log } = require('./constants');
 
 class Extension {
+	name: string;
+	inputs: Array<any>;
+	configs: Object;
+	platforms: Array<string>;
+
 	constructor() {
 		this.name = '';
 		this.inputs = [];
@@ -17,12 +23,8 @@ class Extension {
 		];
 	}
 
-	/**
-	 * @param {String} action
-	 * @param {object} params
-	 */
-	execute(action, params) {
-		extensionLog('info', action);
+	execute(action: string, params: any) {
+		console.log('info', action);
 		return null;
 	}
 }

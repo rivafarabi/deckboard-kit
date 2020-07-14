@@ -4,10 +4,12 @@ const fs = require('fs-extra');
 const Listr = require('listr');
 const path = require('path');
 const yaml = require('yaml');
+const os = require('os');
 const { DestroyerOfModules } = require('galactus');
 const { Observable } = require('rxjs');
 const { promisify } = require('util');
 
+const extDir = path.join(os.homedir(), '/deckboard/extensions');
 const access = promisify(fs.access);
 const projectDir = process.cwd();
 const ymlDir = path.resolve(process.cwd(), 'extension.yml');
@@ -18,7 +20,7 @@ const destroyer = new DestroyerOfModules({
 	rootDirectory: tempDir
 });
 
-const buildExtension = async () => {
+const buildExtension = async (install = false) => {
 	const tasks = new Listr([
 		{
 			title: 'Checking package info',
@@ -31,7 +33,15 @@ const buildExtension = async () => {
 		{
 			title: 'Packaging extension files',
 			task: ctx => createExtensionPackage(ctx)
-		}
+		},
+		...(install
+			? [
+					{
+						title: 'Copy package to extensions folder',
+						task: ctx => copyPackageToExtension(ctx)
+					}
+			  ]
+			: [])
 	]);
 
 	await tasks.run();
@@ -41,6 +51,7 @@ const buildExtension = async () => {
 
 const checkYamlPackageFile = async ctx => {
 	try {
+		await fs.remove(outputDir);
 		await access(ymlDir, fs.constants.R_OK);
 		const file = fs.readFileSync(ymlDir, 'utf8');
 		ctx.packageInfo = yaml.parse(file);
@@ -73,6 +84,7 @@ const createExtensionPackage = async ctx =>
 	new Observable(async observer => {
 		try {
 			observer.next('Package files');
+
 			await asar.createPackage(
 				tempDir,
 				path.join(outputDir, ctx.packageInfo.package + '.asar')
@@ -80,6 +92,22 @@ const createExtensionPackage = async ctx =>
 
 			observer.next('Delete temp folder');
 			await fs.remove(tempDir);
+		} catch (err) {
+			observer.error();
+			throw new Error(chalk.bold.red(err));
+		}
+		observer.complete();
+	});
+
+const copyPackageToExtension = async ctx =>
+	new Observable(async observer => {
+		try {
+			observer.next('Copy package to extensions folder');
+
+			await fs.copy(
+				path.join(outputDir, ctx.packageInfo.package + '.asar'),
+				path.join(extDir, ctx.packageInfo.package + '.asar'),
+			);
 		} catch (err) {
 			observer.error();
 			throw new Error(chalk.bold.red(err));
