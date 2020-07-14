@@ -1,13 +1,16 @@
 {
   "name": "deckboard-kit",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Deckboard app extention starter",
   "main": "index.js",
   "bin": {
     "deckboard-kit": "cli/index.js"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "babel src/ -d dist/",
+    "flow": "flow",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -35,9 +38,13 @@
     "yaml": "^1.6.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.10.4",
+    "@babel/core": "^7.10.4",
     "@babel/preset-env": "^7.4.5",
+    "@babel/preset-flow": "^7.10.4",
     "babel-jest": "^24.8.0",
     "babel-preset-env": "^1.7.0",
+    "flow-bin": "^0.129.0",
     "jest": "^24.8.0"
   }
 }
