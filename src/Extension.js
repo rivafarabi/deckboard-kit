@@ -24,7 +24,7 @@ class Extension {
 	}
 
 	execute(action: string, params: any) {
-		log('info', action);
+		console.log('info', action);
 		return null;
 	}
 }
