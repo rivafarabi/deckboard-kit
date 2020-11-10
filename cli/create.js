@@ -52,8 +52,7 @@ const createProjectFolder = async ctx => {
 		await access(dir, fs.constants.F_OK);
 		throw new Error(
 			chalk.bold.red(
-				`Directory ${
-				options.packageName
+				`Directory ${options.packageName
 				} already exists in ${process.cwd()}. Extension initiation has been cancelled.`
 			)
 		);
@@ -70,7 +69,7 @@ const createPackageJson = async ctx => {
 	const { options, dir } = ctx;
 	try {
 		const jsonContent = {
-			name: options.extName,
+			name: options.extName.replace(' ', '-').toLowerCase(),
 			version: '1.0.0',
 			description: options.description,
 			main: 'index.js',

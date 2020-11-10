@@ -11,12 +11,10 @@ const parseArgumentIntoOptions = rawArgs => {
 	const args = arg(
 		{
 			'--version': Boolean,
-			'--help': Boolean,
 			'--create': Boolean,
 			'--build': Boolean,
-			'-v': '--version',
-			'-h': '--help',
 			'--install': Boolean,
+			'-v': '--version',
 			'-c': '--create',
 			'-b': '--build',
 			'-i': '--install'
@@ -26,7 +24,6 @@ const parseArgumentIntoOptions = rawArgs => {
 		}
 	);
 	return {
-		help: args['--help'],
 		version: args['--version'],
 		create: args['--create'],
 		build: args['--build'],
