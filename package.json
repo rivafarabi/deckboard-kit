@@ -1,11 +1,8 @@
 {
   "name": "deckboard-kit",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "Deckboard app extention starter",
   "main": "dist/index.js",
-  "bin": {
-    "deckboard-kit": "cli/index.js"
-  },
   "scripts": {
     "build": "tsc",
     "prepublish": "npm run build"
@@ -20,8 +17,7 @@
     "node"
   ],
   "files": [
-    "dist",
-    "cli"
+    "dist"
   ],
   "author": "Riva Farabi",
   "license": "MIT",
@@ -30,14 +26,7 @@
   },
   "homepage": "https://github.com/rivafarabi/deckboard-kit#readme",
   "dependencies": {
-    "arg": "^4.1.0",
-    "asar": "^2.0.1",
-    "electron-log": "^2.2.17",
-    "fs-extra": "^8.1.0",
-    "galactus": "^0.2.1",
-    "inquirer": "^6.4.1",
-    "listr": "^0.14.3",
-    "yaml": "^1.6.0"
+    "electron-log": "^2.2.17"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.4",
