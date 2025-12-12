@@ -1,3 +1,27 @@
 {
-    "javascript.validate.enable": false
+	"javascript.validate.enable": false,
+	"editor.formatOnSave": true,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": "explicit"
+	},
+	"eslint.validate": [
+		"typescript"
+	],
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"files.exclude": {
+		"node_modules": true,
+		"dist": true
+	},
+	"search.exclude": {
+		"node_modules": true,
+		"dist": true,
+		"coverage": true
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[json]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	}
 }
